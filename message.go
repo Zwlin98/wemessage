@@ -85,6 +85,10 @@ type TextMessage struct {
 	DuplicateCheckInterval int `json:"duplicate_check_interval"`
 }
 
+func (m TextMessage) ToJSON() ([]byte, error) {
+	return json.Marshal(m)
+}
+
 type ImageMessage struct {
 	ToUser  string `json:"touser"`
 	ToParty string `json:"toparty"`
@@ -99,6 +103,10 @@ type ImageMessage struct {
 	DuplicateCheckInterval int `json:"duplicate_check_interval"`
 }
 
+func (m ImageMessage) ToJSON() ([]byte, error) {
+	return json.Marshal(m)
+}
+
 type VoiceMessage struct {
 	ToUser  string `json:"touser"`
 	ToParty string `json:"toparty"`
@@ -110,6 +118,10 @@ type VoiceMessage struct {
 	} `json:"voice"`
 	EnableDuplicateCheck   int `json:"enable_duplicate_check"`
 	DuplicateCheckInterval int `json:"duplicate_check_interval"`
+}
+
+func (m VoiceMessage) ToJSON() ([]byte, error) {
+	return json.Marshal(m)
 }
 
 type VideoMessage struct {
@@ -128,6 +140,10 @@ type VideoMessage struct {
 	DuplicateCheckInterval int `json:"duplicate_check_interval"`
 }
 
+func (m VideoMessage) ToJSON() ([]byte, error) {
+	return json.Marshal(m)
+}
+
 type FileMessage struct {
 	ToUser  string `json:"touser"`
 	ToParty string `json:"toparty"`
@@ -140,6 +156,10 @@ type FileMessage struct {
 	Safe                   int `json:"safe"`
 	EnableDuplicateCheck   int `json:"enable_duplicate_check"`
 	DuplicateCheckInterval int `json:"duplicate_check_interval"`
+}
+
+func (m FileMessage) ToJSON() ([]byte, error) {
+	return json.Marshal(m)
 }
 
 type TextCardMessage struct {
@@ -157,6 +177,10 @@ type TextCardMessage struct {
 	EnableIDTrans          int `json:"enable_id_trans"`
 	EnableDuplicateCheck   int `json:"enable_duplicate_check"`
 	DuplicateCheckInterval int `json:"duplicate_check_interval"`
+}
+
+func (m TextCardMessage) ToJSON() ([]byte, error) {
+	return json.Marshal(m)
 }
 
 type NewsMessage struct {
@@ -180,6 +204,10 @@ type NewsMessage struct {
 	DuplicateCheckInterval int `json:"duplicate_check_interval"`
 }
 
+func (m NewsMessage) ToJSON() ([]byte, error) {
+	return json.Marshal(m)
+}
+
 type MarkdownMessage struct {
 	ToUser   string `json:"touser"`
 	ToParty  string `json:"toparty"`
@@ -191,4 +219,8 @@ type MarkdownMessage struct {
 	} `json:"markdown"`
 	EnableDuplicateCheck   int `json:"enable_duplicate_check"`
 	DuplicateCheckInterval int `json:"duplicate_check_interval"`
+}
+
+func (m MarkdownMessage) ToJSON() ([]byte, error) {
+	return json.Marshal(m)
 }
